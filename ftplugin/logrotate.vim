@@ -13,7 +13,7 @@ def LogrotateHelp(msg: string = expand("<cword>"))
         gawk '/^CONFIGURATION FILE DIRECTIVES/,/^SCRIPTS/' | gawk '
         /^ {7}%s/,/^[a-z]/ {
             if(firstLineDone) {
-                if(/^ {7}[^ ]/ || /^[A-Z]/)
+                if(/^ {0,7}[^ ]/ && !/endscript/)
                     exit
             }
             firstLineDone = 1

@@ -6,6 +6,12 @@ if exists("b:current_syntax")
     finish
 endif
 
+syn region logRotateScript matchgroup=logRotateKeyword start="\s*\<firstaction\>" end="\<endscript\>" contains=NONE
+syn region logRotateScript matchgroup=logRotateKeyword start="\s*\<lastaction\>" end="\<endscript\>" contains=NONE
+syn region logRotateScript matchgroup=logRotateKeyword start="\s*\<prerotate\>" end="\<endscript\>" contains=NONE
+syn region logRotateScript matchgroup=logRotateKeyword start="\s*\<postrotate\>" end="\<endscript\>" contains=NONE
+syn region logRotateScript matchgroup=logRotateKeyword start="\s*\<preremove\>" end="\<endscript\>" contains=NONE
+
 runtime! syntax/conf.vim
 
 " syn keyword logRotateTodo   contained TODO FIXME XXX
@@ -33,5 +39,7 @@ hi def link logRotateKeyword Keyword
 " hi def link logRotateString String
 " hi def link logRotateComment Comment
 " hi def link logRotateTodo   Todo
+
+hi def link logRotateScript Function
 
 let b:current_syntax = 'logrotate'
