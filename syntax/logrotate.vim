@@ -1,21 +1,19 @@
 " Vim syntax file
 " Language: logrotate
 
-" Quit if a syntax file was already loaded
 if exists("b:current_syntax")
     finish
 endif
 
-syn include @logRotateSh syntax/sh.vim
+syntax include @logRotateSh syntax/sh.vim
 unlet b:current_syntax
 
-syn region logRotateScript matchgroup=logRotateKeyword start="\s*\<\%(firstaction\|lastaction\|prerotate\|postrotate\|preremove\)\>" end="\<endscript\>" contains=@logRotateSh
+syntax region logRotateScript matchgroup=logRotateKeyword start="\s*\<\%(firstaction\|lastaction\|prerotate\|postrotate\|preremove\)\>" end="\<endscript\>" contains=@logRotateSh
 
+" for comments, todo, string
 runtime! syntax/conf.vim
 
-" syn keyword logRotateTodo   contained TODO FIXME XXX
-
-syn keyword logRotateKeyword  addextension allowhardlink compress compresscmd
+syntax keyword logRotateKeyword  addextension allowhardlink compress compresscmd
             \ compressext compressoptions copy copytruncate create createolddir
             \ daily dateext dateformat datehourago dateyesterday delaycompress
             \ endscript extension firstaction hourly ifempty include lastaction
@@ -27,18 +25,6 @@ syn keyword logRotateKeyword  addextension allowhardlink compress compresscmd
             \ shred shredcycles size start su tabooext taboopat uncompresscmd
             \ weekly yearly
 
-" String
-" syn region  logRotateString start=+"+ skip=+\\\\\|\\"+ end=+"+ oneline
-" syn region  logRotateString start=+'+ skip=+\\\\\|\\'+ end=+'+ oneline
-
-" syn match   logRotateComment    "^#.*" contains=logRotateTodo,logRotateString,@Spell
-" syn match   logRotateComment    "\s#.*"ms=s+1 contains=logRotateTodo,logRotateString,@Spell
-
-hi def link logRotateKeyword Keyword
-" hi def link logRotateString String
-" hi def link logRotateComment Comment
-" hi def link logRotateTodo   Todo
-
-" hi def link logRotateScript Function
+highlight default link logRotateKeyword Keyword
 
 let b:current_syntax = 'logrotate'

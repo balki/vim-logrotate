@@ -1,3 +1,3 @@
 
-au BufNewFile,BufRead */logrotate.d/*,logrotate.conf setfiletype logrotate
+autocmd BufNewFile,BufRead */logrotate.d/*,logrotate.conf setfiletype logrotate
 
