@@ -8,6 +8,10 @@ endif
 syntax include @logRotateSh syntax/sh.vim
 unlet b:current_syntax
 
+" FIXME:
+" Whitespace is not required in actual config,
+" But vim syntax region does not work if start pattern is also a keyword
+" Hence added \s* below
 syntax region logRotateScript matchgroup=logRotateKeyword start="\s*\<\%(firstaction\|lastaction\|prerotate\|postrotate\|preremove\)\>" end="\<endscript\>" contains=@logRotateSh
 
 " for comments, todo, string
