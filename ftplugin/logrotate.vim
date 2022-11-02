@@ -3,7 +3,7 @@ vim9script
 # Language: logrotate
 #
 if exists("b:did_ftplugin")
-  finish
+    finish
 endif
 b:did_ftplugin = 1
 
@@ -14,28 +14,13 @@ var awkcmd: string
 if exists("g:logrotate_awk")
     awkcmd = g:logrotate_awk
 else
+    # Have to use gawk, default awk (i.e. mawk) does not support {0,7} regex syntax
     awkcmd = "gawk"
 endif
-# Have to use gawk, default awk (mawk) does not support {0,7} syntax
-if awkcmd != "disable" && executable(awkcmd)
-    def LogrotateHelp(word: string)
-        const searchcmd =<< trim eval END
-            echo "<=== man logrotate ===>"
-            COLUMNS=80 man logrotate 2>/dev/null | 
-            {awkcmd} '/^CONFIGURATION FILE DIRECTIVES/,/^SCRIPTS/' | {awkcmd} '
-            /^ {{7}}{word}/,false {{
-                if(firstLineDone && /^ {{0,7}}[^ ]/ && !/endscript/) exit
-                firstLineDone = 1
-                print(substr($0, 8))
-            }}'
-        END
-        searchcmd
-            ->join("\n")
-            ->systemlist()
-            ->popup_atcursor({ "padding": [0, 1, 1, 1] })
-    enddef
 
-    command -nargs=1 LogRotateHelpCmd :call LogrotateHelp(<f-args>)
+if awkcmd != "disable" && executable(awkcmd)
+
+    command -nargs=1 LogRotateHelpCmd :call g:logrotate#LogrotateHelp(awkcmd, <f-args>)
     setlocal keywordprg=:LogRotateHelpCmd
     b:undo_ftplugin = b:undo_ftplugin .. " keywordprg<"
 endif
