@@ -1,0 +1,52 @@
+*vim-logrotate.txt*	Syntax and help plugin for logrotate files
+*vim-logrotate*
+
+==============================================================================
+
+CONTENTS                                              *vim-logrotate-contents*
+
+    Features                             |vim-logrotate-features|
+    LogRotateHelp                        |:LogRotateHelp|
+    g:logrotate_awk                      |g:logrotate_awk|
+
+
+==============================================================================
+
+Features                                              *vim-logrotate-features*
+
+1. Detect and enable syntax-highlighting for logrotate files
+2. Sets 'omnifunc' to complete logrotate directives
+3. Sets 'keywordprg' to show help for logrotate directives
+
+
+:LogRotateHelp {directive}                                    *:LogRotateHelp*
+
+Shows the help for the directive in a popup window at cursor. Help text is
+extracted from the logrotate manual page (man logrotate).
+
+`:LogRotateHelp` is only enabled if
+
+1. Vim installation includes patch-8.2.4770
+2. An "awk" command is available that supports ranges in regular expression.
+(like "\d{1,4}"). Set |g:logrotate_awk| to use a different awk command.
+
+'keywordprg' is set so |K| works on directives. A different mapping can be set
+as shown below >
+  nmap <silent><leader>k :exe ':LogRotateHelp ' .. expand("<cword>")<CR>
+<
+
+
+g:logrotate_awk                                              *g:logrotate_awk*
+    Type: |String|
+    Default: "gawk"
+
+    Set a different awk command to parse man page.
+    E.g. "goawk" (https://github.com/benhoyt/goawk) 
+
+    Set to "disable" to disable help feature
+
+    Example: >
+        let g:logrotate_awk = "goawk"
+<
+
+ vim: ft=help tw=78 et ts=2 sw=2 sts=2 norl

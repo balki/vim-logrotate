@@ -17,7 +17,7 @@ syntax region logRotateScript matchgroup=logRotateKeyword start="\s*\<\%(firstac
 " for comments, todo, string
 runtime! syntax/conf.vim
 
-syntax keyword logRotateKeyword  addextension allowhardlink compress compresscmd
+syntax keyword logRotateKeyword addextension allowhardlink compress compresscmd
             \ compressext compressoptions copy copytruncate create createolddir
             \ daily dateext dateformat datehourago dateyesterday delaycompress
             \ endscript extension firstaction hourly ifempty include lastaction

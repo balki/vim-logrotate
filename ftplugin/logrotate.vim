@@ -18,10 +18,10 @@ else
     awkcmd = "gawk"
 endif
 
-if awkcmd != "disable" && executable(awkcmd)
+if has("patch-8.2.4770") && awkcmd != "disable" && executable(awkcmd)
 
-    command -nargs=1 LogRotateHelpCmd :call g:logrotate#LogrotateHelp(awkcmd, <f-args>)
-    setlocal keywordprg=:LogRotateHelpCmd
+    command -nargs=1 LogRotateHelp :call g:logrotate#LogrotateHelp(awkcmd, <f-args>)
+    setlocal keywordprg=:LogRotateHelp
     b:undo_ftplugin = b:undo_ftplugin .. " keywordprg<"
 endif
 
