@@ -5,7 +5,7 @@ Syntax and help for logrotate config files in /etc/logrotate.d/*
 # Install
 
     mkdir -p ~/.vim/pack/gitpacks/start/
-    git clone https://github.com/balki/vim-logrotate
+    git -C ~/.vim/pack/gitpacks/start clone https://github.com/balki/vim-logrotate
     vim +":helptags ALL" +"qa"
 
 # Requirements
