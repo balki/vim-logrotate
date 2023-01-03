@@ -1,6 +1,6 @@
 # vim-logrotate
 
-Syntax and help for logrotate config files in /etc/logrotate.d/*
+Syntax and help for [logrotate](https://github.com/logrotate/logrotate) config files in `/etc/logrotate.d/*`
 
 # Install
 

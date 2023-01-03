@@ -20,14 +20,14 @@ runtime! syntax/conf.vim
 syntax keyword logRotateKeyword addextension allowhardlink compress compresscmd
             \ compressext compressoptions copy copytruncate create createolddir
             \ daily dateext dateformat datehourago dateyesterday delaycompress
-            \ endscript extension firstaction hourly ifempty include lastaction
-            \ mail mailfirst maillast maxage maxsize minage minsize missingok
-            \ monthly noallowhardlink nocompress nocopy nocopytruncate nocreate
-            \ nocreateolddir nodateext nodelaycompress nomail nomissingok
-            \ noolddir norenamecopy nosharedscripts noshred notifempty olddir
-            \ postrotate preremove prerotate renamecopy rotate sharedscripts
-            \ shred shredcycles size start su tabooext taboopat uncompresscmd
-            \ weekly yearly
+            \ endscript extension firstaction hourly ifempty ignoreduplicates 
+            \ include lastaction mail mailfirst maillast maxage maxsize minage 
+            \ minsize missingok monthly noallowhardlink nocompress nocopy 
+            \ nocopytruncate nocreate nocreateolddir nodateext nodelaycompress 
+            \ nomail nomissingok noolddir norenamecopy nosharedscripts noshred 
+            \ notifempty olddir postrotate preremove prerotate renamecopy 
+            \ rotate sharedscripts shred shredcycles size start su tabooext 
+            \ taboopat uncompresscmd weekly yearly
 
 highlight default link logRotateKeyword Keyword
 
