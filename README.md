@@ -2,6 +2,8 @@
 
 Syntax and help for [logrotate](https://github.com/logrotate/logrotate) config files in `/etc/logrotate.d/*`
 
+![screenshot](https://user-images.githubusercontent.com/189196/210303719-ee2269b9-1e79-48b3-a0cf-7994cb6ca077.png)
+
 # Install
 
     mkdir -p ~/.vim/pack/gitpacks/start/
